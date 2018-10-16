@@ -6,10 +6,10 @@ import com.walmart.det.unittesting.unittesting.data.SomeDataService;
 
 public class SomeBusinessImpl {
 
-	private SomeDataService someDataService;
+	private SomeDataService dataService;
 
 	public void setSomeDataService(SomeDataService someDataService) {
-		this.someDataService = someDataService;
+		this.dataService = someDataService;
 	}
 
 	public int calculateSum(int[] data) {
@@ -17,7 +17,7 @@ public class SomeBusinessImpl {
 	}
 
 	public int calculateSumFromDataService() {
-		int data[] = someDataService.retriveAllData();
+		int data[] = dataService.retriveAllData();
 		return calculateSum(data);
 	}
 
