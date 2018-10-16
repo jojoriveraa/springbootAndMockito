@@ -15,7 +15,7 @@ import com.walmart.det.unittesting.unittesting.data.SomeDataService;
 public class SomeBusinessMockTest {
 
 	@InjectMocks
-	SomeBusinessImpl business = new SomeBusinessImpl();
+	SomeBusinessImpl business;
 
 	@Mock
 	SomeDataService dataServiceMock;
