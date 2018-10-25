@@ -1,16 +1,16 @@
 package com.walmart.det.unittesting.unittesting.business;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.atMost;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.atMost;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,10 +51,10 @@ public class ListMockTest {
 
 	@Test
 	public void verification_basic() {
-		//SUT
+		// SUT
 		String value = mock.get(0);
 
-		//Verify
+		// Verify
 		verify(mock).get(0);
 		verify(mock).get(anyInt());
 		verify(mock, times(1)).get(anyInt());
@@ -62,11 +62,11 @@ public class ListMockTest {
 
 	@Test
 	public void verification_callTwice() {
-		//SUT
+		// SUT
 		String value1 = mock.get(0);
 		String value2 = mock.get(1);
 
-		//Verify
+		// Verify
 		verify(mock).get(0);
 		verify(mock, atLeast(1)).get(anyInt());
 		verify(mock, atLeastOnce()).get(anyInt());
@@ -74,13 +74,12 @@ public class ListMockTest {
 		verify(mock, never()).get(2);
 	}
 
-
 	@Test
 	public void verification_argsCapturing() {
-		//SUT
+		// SUT
 		mock.add("element");
 
-		//Verification
+		// Verification
 		ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
 		verify(mock).add(captor.capture());
 
@@ -89,11 +88,11 @@ public class ListMockTest {
 
 	@Test
 	public void verification_multipleArgsCapturing() {
-		//SUT
+		// SUT
 		mock.add("element A");
 		mock.add("element B");
 
-		//Verification
+		// Verification
 		ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
 		verify(mock, times(2)).add(captor.capture());
 
