@@ -8,7 +8,8 @@ import com.walmart.det.unittesting.unittesting.model.Item;
 public class ItemBusinessService {
 
 	public Item retriveHardCodedItem() {
-		return new Item(1, "Ball", 1, 100);
+		Item item = new Item(1, "Ball", 1, 100);
+		return item;
 	}
 
 }
