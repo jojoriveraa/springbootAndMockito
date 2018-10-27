@@ -21,7 +21,7 @@ public class ItemControllerTest {
 	private MockMvc mockMvc;
 
 	@Test
-	public void dummyItemAsString_basic() throws Exception {
+	public void dummyItem_basicAsString() throws Exception {
 		// call "/hello-world"
 		RequestBuilder request = MockMvcRequestBuilders
 				.get("/dummy-item")
@@ -37,7 +37,7 @@ public class ItemControllerTest {
 	}
 	
 	@Test
-	public void dummyItemAsJSON_basic() throws Exception {
+	public void dummyItem_basicAsJSON() throws Exception {
 		// call "/hello-world"
 		RequestBuilder request = MockMvcRequestBuilders
 				.get("/dummy-item")
@@ -46,7 +46,23 @@ public class ItemControllerTest {
 		// Do request and verify "Hello world"
 		mockMvc.perform(request)
 				.andExpect(status().isOk())
-				.andExpect(content().json("{\"id\":1,\"name\":\"Ball\",\"price\":1,\"quantity\":100}"))
+				.andExpect(content().json("{\"id\": 1,\"name\":\"Ball\",\"price\":1,\"quantity\":100}"))
+				.andReturn();
+		
+		// assertEquals("Hello world", result.getResponse().getContentAsString());
+	}
+	
+	@Test
+	public void dummyItem_noCheckPrice() throws Exception {
+		// call "/hello-world"
+		RequestBuilder request = MockMvcRequestBuilders
+				.get("/dummy-item")
+				.accept(MediaType.APPLICATION_JSON);
+		
+		// Do request and verify "Hello world"
+		mockMvc.perform(request)
+				.andExpect(status().isOk())
+				.andExpect(content().json("{\"id\":1,\"name\":\"Ball\",\"quantity\":100}"))
 				.andReturn();
 		
 		// assertEquals("Hello world", result.getResponse().getContentAsString());
