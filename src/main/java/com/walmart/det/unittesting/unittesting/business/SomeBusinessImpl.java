@@ -13,12 +13,12 @@ public class SomeBusinessImpl {
 	}
 
 	public int calculateSum(int[] data) {
+		//alternatively you can use => Arrays.stream(data).reduce(Integer::sum);
 		return Arrays.stream(data).sum();
 	}
 
 	public int calculateSumFromDataService() {
-		int data[] = dataService.retriveAllData();
-		return calculateSum(data);
+		return Arrays.stream(dataService.retriveAllData()).sum();
 	}
 
 }

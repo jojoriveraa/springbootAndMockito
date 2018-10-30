@@ -20,9 +20,8 @@ public class ItemBusinessService {
 	}
 
 	public List<Item> retrieveAllItems() {
-		List<Item> items = repository.findAll();
-		items.stream().forEach(i -> i.setValue(i.getPrice() * i.getQuantity()));
-		return items;
+		repository.findAll().stream().forEach(i -> i.setValue(i.getPrice() * i.getQuantity()));
+		return repository.findAll();
 	}
 
 	public void setRepository(ItemRepository repository) {
