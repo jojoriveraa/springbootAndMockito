@@ -25,4 +25,8 @@ public class ItemBusinessService {
 		return items;
 	}
 
+	public void setRepository(ItemRepository repository) {
+		this.repository = repository;
+	}
+
 }
