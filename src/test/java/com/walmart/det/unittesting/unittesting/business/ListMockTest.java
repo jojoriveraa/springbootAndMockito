@@ -1,6 +1,7 @@
 package com.walmart.det.unittesting.unittesting.business;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.atLeastOnce;
@@ -20,7 +21,7 @@ import org.mockito.ArgumentCaptor;
 
 public class ListMockTest {
 
-	List<String> mock = mock(List.class);
+	private List<String> mock = mock(List.class);
 
 	@Test
 	public void size_basic() {
@@ -39,7 +40,7 @@ public class ListMockTest {
 	public void size_returnWithParams() {
 		when(mock.get(0)).thenReturn("gtsmxdet");
 		assertEquals("gtsmxdet", mock.get(0));
-		assertEquals(null, mock.get(1));
+		assertNull(mock.get(1));
 	}
 
 	@Test

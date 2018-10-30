@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import com.walmart.det.unittesting.unittesting.data.SomeDataService;
 
-public class SomeBusinessImpl {
+class SomeBusinessImpl {
 
 	private SomeDataService dataService;
 
@@ -18,7 +18,7 @@ public class SomeBusinessImpl {
 	}
 
 	public int calculateSumFromDataService() {
-		return Arrays.stream(dataService.retriveAllData()).sum();
+		return Arrays.stream(dataService.retrieveAllData()).sum();
 	}
 
 }

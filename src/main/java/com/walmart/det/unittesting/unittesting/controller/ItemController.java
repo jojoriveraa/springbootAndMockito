@@ -10,7 +10,7 @@ import com.walmart.det.unittesting.unittesting.business.ItemBusinessService;
 import com.walmart.det.unittesting.unittesting.model.Item;
 
 @RestController
-public class ItemController {
+class ItemController {
 	
 	@Autowired
 	private ItemBusinessService businessService;
@@ -22,7 +22,7 @@ public class ItemController {
 
     @GetMapping("/item-from-business-service")
     public Item itemFromBusinessService() {
-        return businessService.retriveHardCodedItem();
+        return businessService.retrieveHardCodedItem();
     }
     
     @GetMapping("/all-items-from-database")

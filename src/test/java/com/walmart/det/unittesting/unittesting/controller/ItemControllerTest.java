@@ -56,7 +56,7 @@ public class ItemControllerTest {
 
 	@Test
 	public void itemFromBusinessService_basic() throws Exception {
-		when(businessService.retriveHardCodedItem())
+		when(businessService.retrieveHardCodedItem())
 				.thenReturn(
 						new Item(2, "Item2", 10, 10)
 						);
@@ -73,7 +73,7 @@ public class ItemControllerTest {
 	}
 	
 	@Test
-	public void retriveAllItems_basic() throws Exception {
+	public void retrieveAllItems_basic() throws Exception {
 		when(businessService.retrieveAllItems()).thenReturn(
 				Arrays.asList(
 						new Item(2, "Item2", 10, 10),

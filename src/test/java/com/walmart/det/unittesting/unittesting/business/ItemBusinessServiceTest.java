@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class ItemBusinessServiceTest {
 	ItemRepository itemRepositoryMock;
 
 	@Test
-	public void retriveAllItems_basic() {
+	public void retrieveAllItems_basic() {
 		List<Item> expectedList = Arrays.asList(
 				new Item(2, "Item2", 10, 10), 
 				new Item(3, "Item3", 20, 20)
@@ -35,15 +36,15 @@ public class ItemBusinessServiceTest {
 	}
 
 	@Test
-	public void retriveAllItems_emptyDB() {
-		List<Item> expectedList = Arrays.asList();
+	public void retrieveAllItems_emptyDB() {
+		List<Item> expectedList = Collections.emptyList();
 		when(itemRepositoryMock.findAll()).thenReturn(expectedList);
 		assertEquals(expectedList, itemBusinessService.retrieveAllItems());
 	}
 
 	@Test
-	public void retriveAllItems_oneValue() {
-		List<Item> expectedList = Arrays.asList(
+	public void retrieveAllItems_oneValue() {
+		List<Item> expectedList = Collections.singletonList(
 				new Item(1001, "Item1", 10, 10)
 		);
 		when(itemRepositoryMock.findAll()).thenReturn(expectedList);
@@ -51,7 +52,7 @@ public class ItemBusinessServiceTest {
 	}
 	
 	@Test
-	public void retriveAllItems_calculateValue() {
+	public void retrieveAllItems_calculateValue() {
 		List<Item> expectedList = Arrays.asList(
 				new Item(2, "Item2", 10, 10), 
 				new Item(3, "Item3", 20, 20)

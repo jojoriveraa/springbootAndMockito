@@ -14,13 +14,12 @@ public class ItemBusinessService {
 	@Autowired
 	private ItemRepository repository;
 	
-	public Item retriveHardCodedItem() {
-		Item item = new Item(1, "Ball", 1, 100);
-		return item;
+	public Item retrieveHardCodedItem() {
+		return new Item(1, "Ball", 1, 100);
 	}
 
 	public List<Item> retrieveAllItems() {
-		repository.findAll().stream().forEach(i -> i.setValue(i.getPrice() * i.getQuantity()));
+		repository.findAll().forEach(i -> i.setValue(i.getPrice() * i.getQuantity()));
 		return repository.findAll();
 	}
 

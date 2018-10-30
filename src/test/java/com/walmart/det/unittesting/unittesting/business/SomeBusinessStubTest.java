@@ -11,12 +11,7 @@ public class SomeBusinessStubTest {
 	@Test
 	public void calculateSumFromDataService_basic() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
-		SomeDataService dataServiceStub = new SomeDataService() {
-			@Override
-			public int[] retriveAllData() {
-				return new int[] { 1, 2, 3, 4 };
-			}
-		};
+		SomeDataService dataServiceStub = () -> new int[] { 1, 2, 3, 4 };
 
 		business.setSomeDataService(dataServiceStub);
 		int actualResult = business.calculateSumFromDataService();
@@ -27,12 +22,7 @@ public class SomeBusinessStubTest {
 	@Test
 	public void calculateSumFromDataService_empty() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
-		SomeDataService dataServiceStub = new SomeDataService() {
-			@Override
-			public int[] retriveAllData() {
-				return new int[] { };
-			}
-		};
+		SomeDataService dataServiceStub = () -> new int[] { };
 
 		business.setSomeDataService(dataServiceStub);
 		int actualResult = business.calculateSumFromDataService();
@@ -43,12 +33,7 @@ public class SomeBusinessStubTest {
 	@Test
 	public void calculateSumFromDataService_oneValue() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
-		SomeDataService dataServiceStub = new SomeDataService() {
-			@Override
-			public int[] retriveAllData() {
-				return new int[] { 5 };
-			}
-		};
+		SomeDataService dataServiceStub = () -> new int[] { 5 };
 
 		business.setSomeDataService(dataServiceStub);
 		int actualResult = business.calculateSumFromDataService();
